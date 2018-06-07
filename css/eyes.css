@@ -1,0 +1,13 @@
+.eyes {
+  height: 100px;
+  width: 100px;
+  /* border: 1px solid black; */
+  border-radius: 100%;
+  top: 125px;
+  left: 200px;
+  color: steelblue;
+  box-shadow:
+    100px 100px 0 0 currentColor, /* blur, spread */
+    300px 100px 0 0 currentColor;
+  position: absolute;
+}
