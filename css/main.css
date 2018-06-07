@@ -1,0 +1,72 @@
+p::first-letter {
+  font-size: 150%;
+  color: steelblue;
+  font-family: cursive;
+}
+
+p::first-line {
+  font-style: italic;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+}
+
+p {
+  font-size: 150%;
+}
+
+.eyes {
+  height: 100px;
+  width: 100px;
+  /* border: 1px solid black; */
+  border-radius: 100%;
+  top: 125px;
+  left: 200px;
+  color: steelblue;
+  box-shadow:
+    100px 100px 0 0 currentColor, /* blur, spread */
+    300px 100px 0 0 currentColor;
+  position: absolute;
+}
+
+.moustache {
+  width: 180px;
+  height: 180px;
+  top: 150px; /* moves entire moustache */
+  left: 130px;
+  border-radius: 50%;
+  position: absolute;
+  color: steelblue;
+  /*
+  background-color: currentColor;  change once
+  */
+  box-shadow:
+    150px 240px 0 0 currentColor,
+    300px 240px 0 0 currentColor;
+}
+
+.moustache::before {
+  width: 180px;
+  height: 180px;
+  content: ""; /* set to empty string so it shows up */
+  position: absolute;
+  border-bottom: solid 180px currentColor; /* becomes left part */
+  /* background-color: red; /* main box */
+  border-radius: 0 0 0 100%;
+  left: 30px;
+  top: 85px;
+  transform: rotate(-60deg);
+  transform-origin: right 210px;
+}
+
+.moustache::after {
+  width: 180px;
+  height: 180px;
+  content: "";
+  position: absolute;
+  border-bottom: solid 180px currentColor; /* becomes right part */
+  border-radius: 0 0 100% 0;
+  left: 410px;
+  top: 85px;
+  transform: rotate(60deg);
+  transform-origin: left 210px;
+}
