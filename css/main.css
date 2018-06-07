@@ -1,4 +1,5 @@
 @import "eyes.css";
+/* @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"); */
 
 p::first-letter {
   font-size: 150%;
@@ -21,6 +22,7 @@ p {
 }
 
 .moustache {
+  /* box-sizing: content-box; for when adding bootstrap */
   width: 180px;
   height: 180px;
   top: 150px; /* moves entire moustache */
@@ -37,6 +39,7 @@ p {
 }
 
 .moustache::before {
+  /* box-sizing: content-box; for when adding bootstrap */
   width: 180px;
   height: 180px;
   content: ""; /* set to empty string so it shows up */
@@ -51,6 +54,7 @@ p {
 }
 
 .moustache::after {
+  /* box-sizing: content-box; for when adding bootstrap */
   width: 180px;
   height: 180px;
   content: "";
