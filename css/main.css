@@ -1,68 +1,138 @@
 @import "eyes.css";
 /* @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"); */
 
-p::first-letter {
-  font-size: 150%;
-  color: steelblue;
-  font-family: cursive;
+@keyframes colorChange {
+  from {
+    color: red;
+  }
+  to {
+    color: steelblue;
+  }
 }
 
-p::first-line {
-  font-style: italic;
-  letter-spacing: 2px;
-  word-spacing: 5px;
+@keyframes moveSquare {
+  0% {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
+  25% {
+    position: absolute;
+    top: 50px;
+    left: 250px;
+  }
+  50% {
+    position: absolute;
+    top: 150px;
+    left: 250px;
+  }
+  75% {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+  }
+  100% {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
 }
 
-p {
-  font-size: 150%;
+@keyframes moveStacheLeft {
+  0% {
+    transform: rotate(-60deg);
+  }
+  25% {
+    transform: rotate(-40deg);
+  }
+  50% {
+    transform: rotate(-60deg);
+  }
+  75% {
+    transform: rotate(-40deg);
+  }
+  100% {
+    transform: rotate(-60deg);
+  }
 }
 
-.eyes {
-  color: black;
+@keyframes moveStacheRight {
+  0% {
+    transform: rotate(60deg);
+  }
+  25% {
+    transform: rotate(40deg);
+  }
+  50% {
+    transform: rotate(60deg);
+  }
+  75% {
+    transform: rotate(40deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
 }
+
 
 .moustache {
-  /* box-sizing: content-box; for when adding bootstrap */
-  width: 180px;
   height: 180px;
-  top: 150px; /* moves entire moustache */
-  left: 130px;
-  border-radius: 50%;
-  position: absolute;
+  width: 180px;
   color: steelblue;
-  /*
-  background-color: currentColor;  change once
-  */
+  /* background-color: currentColor; */
+  position: absolute;
+  top: 45px;
+  left: 55px;
+  border-radius: 50%;
+  /* animation-name: colorChange, moveSquare;
+  animation-duration: 5s;
+  animation-iteration-count: infinite; */
   box-shadow:
     150px 240px 0 0 currentColor,
     300px 240px 0 0 currentColor;
 }
 
 .moustache::before {
-  /* box-sizing: content-box; for when adding bootstrap */
-  width: 180px;
-  height: 180px;
-  content: ""; /* set to empty string so it shows up */
+  content: "";
+  height: inherit;
+  width: inherit;
+  /* background-color: red; */
   position: absolute;
-  border-bottom: solid 180px currentColor; /* becomes left part */
-  /* background-color: red; /* main box */
+  top: 90px;
+  left: 60px;
+  border-bottom: 150px solid currentColor;
   border-radius: 0 0 0 100%;
-  left: 30px;
-  top: 85px;
   transform: rotate(-60deg);
-  transform-origin: right 210px;
+  transform-origin: right 250px;
+  animation-name: moveStacheLeft;
+  animation-duration: 3s;
 }
 
 .moustache::after {
-  /* box-sizing: content-box; for when adding bootstrap */
-  width: 180px;
-  height: 180px;
   content: "";
+  height: inherit;
+  width: inherit;
+  /* background-color: red; */
   position: absolute;
-  border-bottom: solid 180px currentColor; /* becomes right part */
+  top: 90px;
+  left: 390px;
+  border-bottom: 150px solid currentColor;
   border-radius: 0 0 100% 0;
-  left: 410px;
-  top: 85px;
+  transform-origin: left 250px;
   transform: rotate(60deg);
-  transform-origin: left 210px;
+  animation-name: moveStacheRight;
+  animation-duration: 3s;
+}
+
+
+@media only screen and (min-width: 500px) and (max-width: 800px) {
+  p {
+    font-size: 200%;
+    font-weight: bold;
+  }
+
+  .moustache {
+    height: 100px;
+    width: 100px;
+  }
 }
