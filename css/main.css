@@ -1,54 +1,10 @@
-@import "eyes.css";
-/* @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"); */
+@import "./eyes.css";
 
-@keyframes colorChange {
-  from {
-    color: red;
-  }
-  to {
-    color: steelblue;
-  }
-}
-
-@keyframes moveSquare {
-  0% {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-  }
-  25% {
-    position: absolute;
-    top: 50px;
-    left: 250px;
-  }
-  50% {
-    position: absolute;
-    top: 150px;
-    left: 250px;
-  }
-  75% {
-    position: absolute;
-    top: 150px;
-    left: 50px;
-  }
-  100% {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-  }
-}
-
-@keyframes moveStacheLeft {
+@keyframes moveLeftStache {
   0% {
     transform: rotate(-60deg);
   }
-  25% {
-    transform: rotate(-40deg);
-  }
   50% {
-    transform: rotate(-60deg);
-  }
-  75% {
     transform: rotate(-40deg);
   }
   100% {
@@ -56,17 +12,11 @@
   }
 }
 
-@keyframes moveStacheRight {
+@keyframes moveRightStache {
   0% {
     transform: rotate(60deg);
   }
-  25% {
-    transform: rotate(40deg);
-  }
   50% {
-    transform: rotate(60deg);
-  }
-  75% {
     transform: rotate(40deg);
   }
   100% {
@@ -78,22 +28,20 @@
 .moustache {
   height: 180px;
   width: 180px;
-  color: steelblue;
-  /* background-color: currentColor; */
   position: absolute;
-  top: 45px;
-  left: 55px;
-  border-radius: 50%;
-  /* animation-name: colorChange, moveSquare;
-  animation-duration: 5s;
-  animation-iteration-count: infinite; */
+  top: 50px;
+  left: 50px;
+  color: black;
+  /* background-color: currentColor; */
+  border-radius: 100%;
+  /* x-offset, y-offset, blur, spread, color */
   box-shadow:
     150px 240px 0 0 currentColor,
     300px 240px 0 0 currentColor;
 }
 
 .moustache::before {
-  content: "";
+  content: ""; /* required to show element */
   height: inherit;
   width: inherit;
   /* background-color: red; */
@@ -104,35 +52,25 @@
   border-radius: 0 0 0 100%;
   transform: rotate(-60deg);
   transform-origin: right 250px;
-  animation-name: moveStacheLeft;
-  animation-duration: 3s;
+  animation-name: moveLeftStache;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 
+
 .moustache::after {
-  content: "";
+  content: ""; /* required to show element */
   height: inherit;
   width: inherit;
-  /* background-color: red; */
+  /* background-color: blue; */
   position: absolute;
   top: 90px;
   left: 390px;
   border-bottom: 150px solid currentColor;
   border-radius: 0 0 100% 0;
-  transform-origin: left 250px;
   transform: rotate(60deg);
-  animation-name: moveStacheRight;
-  animation-duration: 3s;
-}
-
-
-@media only screen and (min-width: 500px) and (max-width: 800px) {
-  p {
-    font-size: 200%;
-    font-weight: bold;
-  }
-
-  .moustache {
-    height: 100px;
-    width: 100px;
-  }
+  transform-origin: left 250px;
+  animation-name: moveRightStache;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
